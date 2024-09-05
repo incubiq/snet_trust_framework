@@ -1,0 +1,4661 @@
+{
+	"info": {
+		"_postman_id": "5df6aaec-5c9d-40a1-a965-924428ec0800",
+		"name": "atPrism",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3411569"
+	},
+	"item": [
+		{
+			"name": "DIDs",
+			"item": [
+				{
+					"name": "did-registrar/dids  [as OSAIS]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"didLong\", _a[0].longFormDid);\r",
+									"pm.environment.set(\"didRef\", _a[0].did);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/did-registrar/dids",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"did-registrar",
+								"dids"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "did-registrar/dids  [OSAIS TEST]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"didLong\", _a[0].longFormDid);\r",
+									"pm.environment.set(\"didRef\", _a[0].did);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY_OSAIS_TEST}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/did-registrar/dids",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"did-registrar",
+								"dids"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "did-registrar/dids [as Alice]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"didLong\", _a[0].longFormDid);\r",
+									"pm.environment.set(\"didRef\", _a[0].did);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{alice_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/did-registrar/dids",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"did-registrar",
+								"dids"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "did-registrar/dids [as OSAIS TEST]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/did-registrar/dids",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"did-registrar",
+								"dids"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "dids/<didRef>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{alice_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/dids/{{didRef}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"dids",
+								"{{didRef}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "dids/<didLong>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/dids/{{didLong}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"dids",
+								"{{didLong}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "did-registrar/dids",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"didLong\", jsonData.longFormDid);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\"documentTemplate\": {\r\n      \"publicKeys\": [\r\n        {\r\n          \"id\": \"auth-2\",\r\n          \"purpose\": \"authentication\"\r\n        },\r\n        {\r\n          \"id\": \"issue-2\",\r\n              \"purpose\": \"assertionMethod\"\r\n        }\r\n      ],\r\n      \"services\": []\r\n    }\r\n }"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/did-registrar/dids",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"did-registrar",
+								"dids"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "did-registrar/dids/<>/updates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"didLong\", jsonData.longFormDid);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{alice_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"actions\": [\r\n    {\r\n        \"actionType\": \"ADD_KEY\",\r\n        \"addKey\": {\r\n          \"id\": \"issue-2\",\r\n              \"purpose\": \"assertionMethod\"\r\n        }\r\n    }\r\n]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/did-registrar/dids/did:prism:04cfc06a2f98b8f0b341a1f0538dd0927bc899e7063f700e0a9a5c9bb8cb6392/updates",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"did-registrar",
+								"dids",
+								"did:prism:04cfc06a2f98b8f0b341a1f0538dd0927bc899e7063f700e0a9a5c9bb8cb6392",
+								"updates"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "did-registrar/dids/{{did}}/publications",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/did-registrar/dids/{{didLong}}/publications",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"did-registrar",
+								"dids",
+								"{{didLong}}",
+								"publications"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "wallets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{ADMIN_TOKEN}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-admin-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/wallets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"wallets"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "wallets/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{ADMIN_TOKEN}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-admin-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/wallets/{{wallet_id_osais}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"wallets",
+								"{{wallet_id_osais}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "wallets [Alice]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"wallet_id_alice\", jsonData.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"seed\": \"aaaa4785ce6d548134020f610b76102ca1075d323672a75ec8c9a27a7b8607e3b9b384e43b77bb08f8d5159651ae38b98573f7ecc79f2d7e1f220371ce60cf8a\",\r\n    \"name\": \"wallet for Alice\"\r\n}\r\n  "
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/wallets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"wallets"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "wallets [Bob]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"wallet_id_bob\", jsonData.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"seed\": \"bbbb4785ce6d566654020f610b76102ca1075d3bb672a75ec8c9a27a7b8607e3b9b384e43b77bb08f8d5159651ae38b98573f7ecc79f2d7e1f1cc371ce60cf8b\",\r\n    \"name\": \"wallet for Bob\"\r\n}\r\n  "
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/wallets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"wallets"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "iam/entities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"entity\", jsonData.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alice Identity\",\r\n    \"walletId\": \"4be06694-63e0-4a40-b344-47a772a8dd75\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/iam/entities",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"iam",
+								"entities"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "iam/entities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/iam/entities",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"iam",
+								"entities"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "iam/entities/{{ID}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/iam/entities/{{entity}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"iam",
+								"entities",
+								"{{entity}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "iam/entities/{{ID_TEST_CALLER}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/iam/entities/{{ENTITY_OSAIS_TEST_CALLER}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"iam",
+								"entities",
+								"{{ENTITY_OSAIS_TEST_CALLER}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "iam/entities/{{ID_TEST_ADMIN}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/iam/entities/{{ENTITY_OSAIS_TEST_ADMIN}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"iam",
+								"entities",
+								"{{ENTITY_OSAIS_TEST_ADMIN}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "iam/apikey-authentication [Alice]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"entityId\": \"54960542-4fc3-4c0f-982e-6f01c7aff262\",\r\n    \"apiKey\": \"Bob_api_key_9876\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/iam/apikey-authentication",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"iam",
+								"apikey-authentication"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "iam/apikey-authentication [OSAIS]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"entityId\": \"f7870500-68e0-46fa-887b-44cd715d89cb\",\r\n    \"apiKey\": \"a new key for osais admin\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/iam/apikey-authentication",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"iam",
+								"apikey-authentication"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schema",
+			"item": [
+				{
+					"name": "schema-registry/schemas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/schema-registry/schemas",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"schema-registry",
+								"schemas"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "schema-registry/schemas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"schema_id\", jsonData.id);\r",
+									"pm.environment.set(\"schema_idLong\", jsonData.longId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"ai_identity\",\"version\":\"1.0.1\",\"description\":\"An AI's identity attributes\",\"type\":\"https://w3c-ccg.github.io/vc-json-schemas/schema/2.0/schema.json\",\"author\":\"did:prism:a0b6cf03da3812357dd0fa043e3a7595bae6749974c10d9cc0f3a4e4314fa9a2\",\"tags\":[\"AI\"],\"schema\":{\"$id\":\"https://complement-applied-nov-pattern.trycloudflare.com/assets/schema/ai_identity_1_0_1.json\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"description\":\"An AI's identity attributes\",\"type\":\"object\",\"properties\":{\"uid\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"repo\":{\"type\":\"string\"}},\"required\":[\"uid\",\"name\",\"repo\"],\"additionalProperties\":true}}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/schema-registry/schemas",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"schema-registry",
+								"schemas"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "schema-registry/{author}/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"schema_id\", jsonData.id);\r",
+									"pm.environment.set(\"schema_idLong\", jsonData.longId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"origin\",\r\n  \"version\": \"1.0.1\",\r\n  \"description\": \"Identity of an AI\",\r\n  \"type\": \"https://w3c-ccg.github.io/vc-json-schemas/schema/2.0/schema.json\",\r\n  \"author\": \"did:prism:31c042da2d0e74ca0a28f7d2b1942bf4ce80776729573176c4763f1f2477deaf\",\r\n  \"tags\": [\r\n    \"AI\",\r\n    \"location\",\r\n    \"gpu\"\r\n  ],\r\n  \"schema\": {\r\n    \"$id\": \"https://allergy-glory-guarantees-une.trycloudflare.com/assets/credentials/ai_identity.json\",\r\n    \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\r\n    \"description\": \"Identity of an AI\",\r\n    \"type\": \"object\",\r\n    \"properties\": {\r\n      \"uid\": {\r\n        \"type\": \"string\"\r\n      },\r\n      \"name\": {\r\n        \"type\": \"string\"\r\n      },\r\n      \"model\": {\r\n        \"type\": \"string\"\r\n      },\r\n      \"repo\": {\r\n        \"type\": \"string\"\r\n      },\r\n      \"location\": {\r\n        \"type\": \"string\"\r\n      },\r\n      \"gpu\": {\r\n        \"type\": \"string\"\r\n      }\r\n    },\r\n    \"required\": [\r\n      \"uid\",\r\n      \"name\",\r\n      \"model\",\r\n      \"repo\",\r\n      \"location\",\r\n      \"gpu\"\r\n    ],\r\n    \"additionalProperties\": true\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/schema-registry/{{didRef}}/05754f89-65da-4140-a043-a65ecc5cdaa2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"schema-registry",
+								"{{didRef}}",
+								"05754f89-65da-4140-a043-a65ecc5cdaa2"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "schema-registry/schemas/guid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/schema-registry/schemas/aec3df49-970b-3bf8-b7e6-af3ad555457b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"schema-registry",
+								"schemas",
+								"aec3df49-970b-3bf8-b7e6-af3ad555457b"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "VerifiedCreds",
+			"item": [
+				{
+					"name": "credential-definition-registry/definitions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"schema_id\", jsonData.id);\r",
+									"pm.environment.set(\"schema_idLong\", jsonData.longId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/credential-definition-registry/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"credential-definition-registry",
+								"definitions"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "credential-definition-registry/definitions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"schema_id\", jsonData.id);\r",
+									"pm.environment.set(\"schema_idLong\", jsonData.longId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"ai_identity\",\r\n    \"version\": \"1.0.1\",\r\n    \"description\": \"An AI's identity attributes\",\r\n  \"tag\": \"AI\",\r\n  \"author\": \"did:prism:09f7cf117bb46ebd90ad2068ed37f2fd18755a88a0b7346e9e90de59edfc98ca\",\r\n  \"schemaId\": \"https://casio-harris-idol-chest.trycloudflare.com/assets/schema/ai_identity_1_0_1.json\",\r\n  \"signatureType\": \"CL\",\r\n  \"supportRevocation\": true\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/credential-definition-registry/definitions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"credential-definition-registry",
+								"definitions"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "issue-credentials/records  [Bob]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"recordAccept\", _a[_a.length-1].recordId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/issue-credentials/records",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"issue-credentials",
+								"records"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "issue-credentials/records  [Alice]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"recordAccept\", _a[_a.length-1].recordId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{alice_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/issue-credentials/records?thid=d0609bef-7a5d-46fc-b2c5-f8bbe856d659",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"issue-credentials",
+								"records"
+							],
+							"query": [
+								{
+									"key": "thid",
+									"value": "d0609bef-7a5d-46fc-b2c5-f8bbe856d659"
+								}
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "issue-credentials/records/{{id}}  [OSAIS]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"didLong\", _a[0].longFormDid);\r",
+									"pm.environment.set(\"didRef\", _a[0].did);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/issue-credentials/records/{{recordOffer}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"issue-credentials",
+								"records",
+								"{{recordOffer}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "issue-credentials/records/{{id}} [AI]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"didLong\", _a[0].longFormDid);\r",
+									"pm.environment.set(\"didRef\", _a[0].did);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY_AI}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/issue-credentials/records/{{recordAccept}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"issue-credentials",
+								"records",
+								"{{recordAccept}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "issue-credentials/credential-offers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"recordOffer\", jsonData.recordId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{alice_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"schemaId\": null,\r\n\"claims\": {\r\n    \"condition\": \"encoded_cond_that_you_cannot_decode\",\r\n    \"comment\": \"You bet it's important\"\r\n},\r\n\"automaticIssuance\": false,\r\n\"issuingDID\": \"did:prism:04cfc06a2f98b8f0b341a1f0538dd0927bc899e7063f700e0a9a5c9bb8cb6392\",\r\n\"connectionId\": \"51d8b623-2539-4e45-8035-227f471f10d5\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/issue-credentials/credential-offers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"issue-credentials",
+								"credential-offers"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "issue-credentials/records/<id>/accept-offer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"didLong\", _a[0].longFormDid);\r",
+									"pm.environment.set(\"didRef\", _a[0].did);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"subjectId\": \"did:prism:c9d33452db742dffbb25e120578f13ffafd9a7d97bb14ab46780e23a2bddcb0c\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/issue-credentials/records/{{recordAccept}}/accept-offer",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"issue-credentials",
+								"records",
+								"{{recordAccept}}",
+								"accept-offer"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "issue-credentials/records/<id>/issue-credential",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"//pm.environment.set(\"didLong\", _a[0].longFormDid);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{alice_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/issue-credentials/records/{{recordOffer}}/issue-credential",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"issue-credentials",
+								"records",
+								"{{recordOffer}}",
+								"issue-credential"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "present-proof/presentations  [OSAIS]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"verifier_presentation_id\", jsonData.contents[0].presentationId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/present-proof/presentations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"present-proof",
+								"presentations"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "present-proof/presentations  [Bob]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"verifier_presentation_id\", jsonData.contents[0].presentationId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/present-proof/presentations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"present-proof",
+								"presentations"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "present-proof/presentations [Verifier]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"connectionId\": \"ac45212d-48e0-4d48-b1ff-269692664bf3\",\r\n    \"proofs\": [ ],\r\n    \"options\": {\r\n          \"challenge\": \"Give me proof of your VC with condition\",\r\n          \"domain\": \"https://mydomain.com\"\r\n    },\r\n    \"credentialFormat\": \"JWT\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/present-proof/presentations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"present-proof",
+								"presentations"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "present-proof/presentations  [Bob]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"holder_presentation_id\", jsonData.contents[0].presentationId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/present-proof/presentations?thid=78229765-afff-429f-839d-4693deb7f9be",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"present-proof",
+								"presentations"
+							],
+							"query": [
+								{
+									"key": "thid",
+									"value": "78229765-afff-429f-839d-4693deb7f9be"
+								}
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "present-proof/presentations  [OSAIS]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"verifier_presentation_id\", jsonData.contents[0].presentationId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/present-proof/presentations?thid=a2ed085b-4cbc-47c8-a495-9ec16089f845",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"present-proof",
+								"presentations"
+							],
+							"query": [
+								{
+									"key": "thid",
+									"value": "a2ed085b-4cbc-47c8-a495-9ec16089f845"
+								}
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "present-proof/presentations /<id> [Bob]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"request-accept\",\r\n    \"proofId\": [\"3fe718aa-248a-489f-9f55-e8ef3a3ebb30\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/present-proof/presentations/{{holder_presentation_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"present-proof",
+								"presentations",
+								"{{holder_presentation_id}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "present-proof/presentations /<id>",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"presentation-accept\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/present-proof/presentations/{{verifier_presentation_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"present-proof",
+								"presentations",
+								"{{verifier_presentation_id}}"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Communication",
+			"item": [
+				{
+					"name": "connections  [OSAIS]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Removed redundant declaration of helpers\r",
+									"postman.setGlobalVariable(\"loadHelpers\", function loadHelpers() {\r",
+									"    let helpers = {};\r",
+									"\r",
+									"    helpers.checkJSON = function checkJSON() {\r",
+									"        pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.checkStatus = function checkStatus(status) {\r",
+									"        pm.test(\"response is ok (\"+status+\")\", function () {\r",
+									"            pm.response.to.have.status(status);\r",
+									"        });\r",
+									"    }\r",
+									"\r",
+									"    helpers.checkDelay = function checkDelay(ms) {\r",
+									"        // The response time must be less than ms milliseconds\r",
+									"        pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+ms+\"ms)\", function () {pm.expect(responseTime).to.be.below(ms);\r",
+									"        });\r",
+									"    }\r",
+									"        \r",
+									"    helpers.hasData = function hasData() {\r",
+									"        pm.test(\"Content has data\", function () { \r",
+									"          var jsonData = pm.response.json();\r",
+									"          pm.expect(jsonData).to.have.property('data');\r",
+									"          pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.mustContain = function mustContain(text) {\r",
+									"        pm.test(\"Content contains expected text (\"+text+\")\", function () { \r",
+									"          pm.expect(pm.response.text()).to.include(text); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.minArraySize = function minArraySize(a, minSize) {\r",
+									"        pm.test(\"Array contains enough items (\"+minSize+\")\", function () { \r",
+									"          pm.expect(a.length).to.be.at.least(minSize); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.testSchema = function testSchema(_schema, obj, strSchema) {\r",
+									"      pm.test(\"Schema \"+strSchema+\" is OK\", function () { \r",
+									"          pm.expect(tv4.validate(obj, _schema)).to.be.true;\r",
+									"      })\r",
+									"    }\r",
+									"\r",
+									"    return helpers;\r",
+									"} + '; loadHelpers();');\r",
+									"\r",
+									"    // ------------------------\r",
+									"    //   TESTS FOR THIS CALL\r",
+									"    // ------------------------\r",
+									"\r",
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(500);\r",
+									"\r",
+									"pm.test(\"APIs are running\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.kind).to.eql('ConnectionsPage'); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"postman.setGlobalVariable(\"commonTests\", (objParam) => {\r",
+									"  \r",
+									"  pm.test(\"response is ok (\"+objParam.status+\")\", function () {\r",
+									"      pm.response.to.have.status(objParam.status);\r",
+									"  });\r",
+									"\r",
+									"  // The response time must be less than 500 milliseconds\r",
+									"  pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+objParam.delay+\"ms)\", function () {pm.expect(responseTime).to.be.below(objParam.delay);\r",
+									"    });\r",
+									"    \r",
+									"if(objParam.status!=204) {\r",
+									"    \r",
+									"  // The Content-Type must be JSON\r",
+									"  pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"  });\r",
+									"\r",
+									"  // structure of JSON is reasonable...\r",
+									"  pm.test(\"Content has data\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('data');\r",
+									"    pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"  });\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/connections",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"connections"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "connections [Alice]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Removed redundant declaration of helpers\r",
+									"postman.setGlobalVariable(\"loadHelpers\", function loadHelpers() {\r",
+									"    let helpers = {};\r",
+									"\r",
+									"    helpers.checkJSON = function checkJSON() {\r",
+									"        pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.checkStatus = function checkStatus(status) {\r",
+									"        pm.test(\"response is ok (\"+status+\")\", function () {\r",
+									"            pm.response.to.have.status(status);\r",
+									"        });\r",
+									"    }\r",
+									"\r",
+									"    helpers.checkDelay = function checkDelay(ms) {\r",
+									"        // The response time must be less than ms milliseconds\r",
+									"        pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+ms+\"ms)\", function () {pm.expect(responseTime).to.be.below(ms);\r",
+									"        });\r",
+									"    }\r",
+									"        \r",
+									"    helpers.hasData = function hasData() {\r",
+									"        pm.test(\"Content has data\", function () { \r",
+									"          var jsonData = pm.response.json();\r",
+									"          pm.expect(jsonData).to.have.property('data');\r",
+									"          pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.mustContain = function mustContain(text) {\r",
+									"        pm.test(\"Content contains expected text (\"+text+\")\", function () { \r",
+									"          pm.expect(pm.response.text()).to.include(text); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.minArraySize = function minArraySize(a, minSize) {\r",
+									"        pm.test(\"Array contains enough items (\"+minSize+\")\", function () { \r",
+									"          pm.expect(a.length).to.be.at.least(minSize); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.testSchema = function testSchema(_schema, obj, strSchema) {\r",
+									"      pm.test(\"Schema \"+strSchema+\" is OK\", function () { \r",
+									"          pm.expect(tv4.validate(obj, _schema)).to.be.true;\r",
+									"      })\r",
+									"    }\r",
+									"\r",
+									"    return helpers;\r",
+									"} + '; loadHelpers();');\r",
+									"\r",
+									"    // ------------------------\r",
+									"    //   TESTS FOR THIS CALL\r",
+									"    // ------------------------\r",
+									"\r",
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(500);\r",
+									"\r",
+									"pm.test(\"APIs are running\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.kind).to.eql('ConnectionsPage'); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"postman.setGlobalVariable(\"commonTests\", (objParam) => {\r",
+									"  \r",
+									"  pm.test(\"response is ok (\"+objParam.status+\")\", function () {\r",
+									"      pm.response.to.have.status(objParam.status);\r",
+									"  });\r",
+									"\r",
+									"  // The response time must be less than 500 milliseconds\r",
+									"  pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+objParam.delay+\"ms)\", function () {pm.expect(responseTime).to.be.below(objParam.delay);\r",
+									"    });\r",
+									"    \r",
+									"if(objParam.status!=204) {\r",
+									"    \r",
+									"  // The Content-Type must be JSON\r",
+									"  pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"  });\r",
+									"\r",
+									"  // structure of JSON is reasonable...\r",
+									"  pm.test(\"Content has data\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('data');\r",
+									"    pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"  });\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{alice_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/connections",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"connections"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "connections [Bob]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Removed redundant declaration of helpers\r",
+									"postman.setGlobalVariable(\"loadHelpers\", function loadHelpers() {\r",
+									"    let helpers = {};\r",
+									"\r",
+									"    helpers.checkJSON = function checkJSON() {\r",
+									"        pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.checkStatus = function checkStatus(status) {\r",
+									"        pm.test(\"response is ok (\"+status+\")\", function () {\r",
+									"            pm.response.to.have.status(status);\r",
+									"        });\r",
+									"    }\r",
+									"\r",
+									"    helpers.checkDelay = function checkDelay(ms) {\r",
+									"        // The response time must be less than ms milliseconds\r",
+									"        pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+ms+\"ms)\", function () {pm.expect(responseTime).to.be.below(ms);\r",
+									"        });\r",
+									"    }\r",
+									"        \r",
+									"    helpers.hasData = function hasData() {\r",
+									"        pm.test(\"Content has data\", function () { \r",
+									"          var jsonData = pm.response.json();\r",
+									"          pm.expect(jsonData).to.have.property('data');\r",
+									"          pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.mustContain = function mustContain(text) {\r",
+									"        pm.test(\"Content contains expected text (\"+text+\")\", function () { \r",
+									"          pm.expect(pm.response.text()).to.include(text); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.minArraySize = function minArraySize(a, minSize) {\r",
+									"        pm.test(\"Array contains enough items (\"+minSize+\")\", function () { \r",
+									"          pm.expect(a.length).to.be.at.least(minSize); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.testSchema = function testSchema(_schema, obj, strSchema) {\r",
+									"      pm.test(\"Schema \"+strSchema+\" is OK\", function () { \r",
+									"          pm.expect(tv4.validate(obj, _schema)).to.be.true;\r",
+									"      })\r",
+									"    }\r",
+									"\r",
+									"    return helpers;\r",
+									"} + '; loadHelpers();');\r",
+									"\r",
+									"    // ------------------------\r",
+									"    //   TESTS FOR THIS CALL\r",
+									"    // ------------------------\r",
+									"\r",
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(500);\r",
+									"\r",
+									"pm.test(\"APIs are running\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.kind).to.eql('ConnectionsPage'); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"postman.setGlobalVariable(\"commonTests\", (objParam) => {\r",
+									"  \r",
+									"  pm.test(\"response is ok (\"+objParam.status+\")\", function () {\r",
+									"      pm.response.to.have.status(objParam.status);\r",
+									"  });\r",
+									"\r",
+									"  // The response time must be less than 500 milliseconds\r",
+									"  pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+objParam.delay+\"ms)\", function () {pm.expect(responseTime).to.be.below(objParam.delay);\r",
+									"    });\r",
+									"    \r",
+									"if(objParam.status!=204) {\r",
+									"    \r",
+									"  // The Content-Type must be JSON\r",
+									"  pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"  });\r",
+									"\r",
+									"  // structure of JSON is reasonable...\r",
+									"  pm.test(\"Content has data\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('data');\r",
+									"    pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"  });\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/connections",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"connections"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "connections",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Removed redundant declaration of helpers\r",
+									"postman.setGlobalVariable(\"loadHelpers\", function loadHelpers() {\r",
+									"    let helpers = {};\r",
+									"\r",
+									"    helpers.checkJSON = function checkJSON() {\r",
+									"        pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.checkStatus = function checkStatus(status) {\r",
+									"        pm.test(\"response is ok (\"+status+\")\", function () {\r",
+									"            pm.response.to.have.status(status);\r",
+									"        });\r",
+									"    }\r",
+									"\r",
+									"    helpers.checkDelay = function checkDelay(ms) {\r",
+									"        // The response time must be less than ms milliseconds\r",
+									"        pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+ms+\"ms)\", function () {pm.expect(responseTime).to.be.below(ms);\r",
+									"        });\r",
+									"    }\r",
+									"        \r",
+									"    helpers.hasData = function hasData() {\r",
+									"        pm.test(\"Content has data\", function () { \r",
+									"          var jsonData = pm.response.json();\r",
+									"          pm.expect(jsonData).to.have.property('data');\r",
+									"          pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.mustContain = function mustContain(text) {\r",
+									"        pm.test(\"Content contains expected text (\"+text+\")\", function () { \r",
+									"          pm.expect(pm.response.text()).to.include(text); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.minArraySize = function minArraySize(a, minSize) {\r",
+									"        pm.test(\"Array contains enough items (\"+minSize+\")\", function () { \r",
+									"          pm.expect(a.length).to.be.at.least(minSize); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.testSchema = function testSchema(_schema, obj, strSchema) {\r",
+									"      pm.test(\"Schema \"+strSchema+\" is OK\", function () { \r",
+									"          pm.expect(tv4.validate(obj, _schema)).to.be.true;\r",
+									"      })\r",
+									"    }\r",
+									"\r",
+									"    return helpers;\r",
+									"} + '; loadHelpers();');\r",
+									"\r",
+									"    // ------------------------\r",
+									"    //   TESTS FOR THIS CALL\r",
+									"    // ------------------------\r",
+									"\r",
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(500);\r",
+									"\r",
+									"pm.test(\"APIs are running\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.kind).to.eql('ConnectionsPage'); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"postman.setGlobalVariable(\"commonTests\", (objParam) => {\r",
+									"  \r",
+									"  pm.test(\"response is ok (\"+objParam.status+\")\", function () {\r",
+									"      pm.response.to.have.status(objParam.status);\r",
+									"  });\r",
+									"\r",
+									"  // The response time must be less than 500 milliseconds\r",
+									"  pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+objParam.delay+\"ms)\", function () {pm.expect(responseTime).to.be.below(objParam.delay);\r",
+									"    });\r",
+									"    \r",
+									"if(objParam.status!=204) {\r",
+									"    \r",
+									"  // The Content-Type must be JSON\r",
+									"  pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"  });\r",
+									"\r",
+									"  // structure of JSON is reasonable...\r",
+									"  pm.test(\"Content has data\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('data');\r",
+									"    pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"  });\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"label\": \"Connect Verifier to Bob\",\r\n\"goalCode\": \"123\",\r\n\"goal\": \"Verify BOB's credentials\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/connections",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"connections"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "connection-invitations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Removed redundant declaration of helpers\r",
+									"postman.setGlobalVariable(\"loadHelpers\", function loadHelpers() {\r",
+									"    let helpers = {};\r",
+									"\r",
+									"    helpers.checkJSON = function checkJSON() {\r",
+									"        pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.checkStatus = function checkStatus(status) {\r",
+									"        pm.test(\"response is ok (\"+status+\")\", function () {\r",
+									"            pm.response.to.have.status(status);\r",
+									"        });\r",
+									"    }\r",
+									"\r",
+									"    helpers.checkDelay = function checkDelay(ms) {\r",
+									"        // The response time must be less than ms milliseconds\r",
+									"        pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+ms+\"ms)\", function () {pm.expect(responseTime).to.be.below(ms);\r",
+									"        });\r",
+									"    }\r",
+									"        \r",
+									"    helpers.hasData = function hasData() {\r",
+									"        pm.test(\"Content has data\", function () { \r",
+									"          var jsonData = pm.response.json();\r",
+									"          pm.expect(jsonData).to.have.property('data');\r",
+									"          pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.mustContain = function mustContain(text) {\r",
+									"        pm.test(\"Content contains expected text (\"+text+\")\", function () { \r",
+									"          pm.expect(pm.response.text()).to.include(text); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.minArraySize = function minArraySize(a, minSize) {\r",
+									"        pm.test(\"Array contains enough items (\"+minSize+\")\", function () { \r",
+									"          pm.expect(a.length).to.be.at.least(minSize); \r",
+									"        });\r",
+									"    }\r",
+									"    \r",
+									"    helpers.testSchema = function testSchema(_schema, obj, strSchema) {\r",
+									"      pm.test(\"Schema \"+strSchema+\" is OK\", function () { \r",
+									"          pm.expect(tv4.validate(obj, _schema)).to.be.true;\r",
+									"      })\r",
+									"    }\r",
+									"\r",
+									"    return helpers;\r",
+									"} + '; loadHelpers();');\r",
+									"\r",
+									"    // ------------------------\r",
+									"    //   TESTS FOR THIS CALL\r",
+									"    // ------------------------\r",
+									"\r",
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(500);\r",
+									"\r",
+									"pm.test(\"APIs are running\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.kind).to.eql('ConnectionsPage'); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"postman.setGlobalVariable(\"commonTests\", (objParam) => {\r",
+									"  \r",
+									"  pm.test(\"response is ok (\"+objParam.status+\")\", function () {\r",
+									"      pm.response.to.have.status(objParam.status);\r",
+									"  });\r",
+									"\r",
+									"  // The response time must be less than 500 milliseconds\r",
+									"  pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+objParam.delay+\"ms)\", function () {pm.expect(responseTime).to.be.below(objParam.delay);\r",
+									"    });\r",
+									"    \r",
+									"if(objParam.status!=204) {\r",
+									"    \r",
+									"  // The Content-Type must be JSON\r",
+									"  pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"  });\r",
+									"\r",
+									"  // structure of JSON is reasonable...\r",
+									"  pm.test(\"Content has data\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('data');\r",
+									"    pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"  });\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{bob_APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"invitation\":\"eyJpZCI6IjM1YzdiMzk1LTI5ZjAtNGI2NS1hY2YxLThjMjFmNGZjMDkwNSIsInR5cGUiOiJodHRwczovL2RpZGNvbW0ub3JnL291dC1vZi1iYW5kLzIuMC9pbnZpdGF0aW9uIiwiZnJvbSI6ImRpZDpwZWVyOjIuRXo2TFNzTENTWnVvOWg1UDY5VWpZQ3NmMVhoblNLaXNtRDZWb1BYamFGRHlSaW5tYy5WejZNa3ExYkpHcDdKWlRZOUJTdWN5aDhrNHg3alhDdEJoUzNrQWNqTURlTk10R2paLlNleUowSWpvaVpHMGlMQ0p6SWpwN0luVnlhU0k2SW1oMGRIQTZMeTlvYjNOMExtUnZZMnRsY2k1cGJuUmxjbTVoYkRvNE1UQXdMMlJwWkdOdmJXMGlMQ0p5SWpwYlhTd2lZU0k2V3lKa2FXUmpiMjF0TDNZeUlsMTlmUSIsImJvZHkiOnsiZ29hbF9jb2RlIjoiMTIzIiwiZ29hbCI6IlZlcmlmeSBCT0IncyBjcmVkZW50aWFscyIsImFjY2VwdCI6W119fQ==\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/connection-invitations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"connection-invitations"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "connections/{id}  [OSAIS]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"postman.setGlobalVariable(\"commonTests\", (objParam) => {\r",
+									"  \r",
+									"  pm.test(\"response is ok (\"+objParam.status+\")\", function () {\r",
+									"      pm.response.to.have.status(objParam.status);\r",
+									"  });\r",
+									"\r",
+									"  // The response time must be less than 500 milliseconds\r",
+									"  pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+objParam.delay+\"ms)\", function () {pm.expect(responseTime).to.be.below(objParam.delay);\r",
+									"    });\r",
+									"    \r",
+									"if(objParam.status!=204) {\r",
+									"    \r",
+									"  // The Content-Type must be JSON\r",
+									"  pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"  });\r",
+									"\r",
+									"  // structure of JSON is reasonable...\r",
+									"  pm.test(\"Content has data\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('data');\r",
+									"    pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"  });\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/connections/0862ce2a-fd11-4aa1-be6a-51d3ab595e76",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"connections",
+								"0862ce2a-fd11-4aa1-be6a-51d3ab595e76"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "connections/{id} [AI]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"postman.setGlobalVariable(\"commonTests\", (objParam) => {\r",
+									"  \r",
+									"  pm.test(\"response is ok (\"+objParam.status+\")\", function () {\r",
+									"      pm.response.to.have.status(objParam.status);\r",
+									"  });\r",
+									"\r",
+									"  // The response time must be less than 500 milliseconds\r",
+									"  pm.test(\"Response time is acceptable (\"+responseTime+\"ms vs \"+objParam.delay+\"ms)\", function () {pm.expect(responseTime).to.be.below(objParam.delay);\r",
+									"    });\r",
+									"    \r",
+									"if(objParam.status!=204) {\r",
+									"    \r",
+									"  // The Content-Type must be JSON\r",
+									"  pm.test(\"Content-Type header is set\", function(){ pm.expect(postman.getResponseHeader(\"Content-Type\")).to.include(\"application/json\");\r",
+									"  });\r",
+									"\r",
+									"  // structure of JSON is reasonable...\r",
+									"  pm.test(\"Content has data\", function () { \r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('data');\r",
+									"    pm.expect(jsonData.data).not.to.have.property('data');\r",
+									"  });\r",
+									"    \r",
+									"}\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY_AI}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/connections/d0100f87-56cd-42af-82d1-b0a4650b3717",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"connections",
+								"d0100f87-56cd-42af-82d1-b0a4650b3717"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "verification/policies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"followOriginalHttpMethod": false
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{APIKEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "null"
+					},
+					{
+						"key": "charset",
+						"value": "UTF-8"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{host}}/cloud-agent/verification/policies",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cloud-agent",
+						"verification",
+						"policies"
+					]
+				},
+				"description": "testing minimum response time as well as basic call"
+			},
+			"response": []
+		},
+		{
+			"name": "schema-registry/schemas Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"followOriginalHttpMethod": false
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{APIKEY}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "null"
+					},
+					{
+						"key": "charset",
+						"value": "UTF-8"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{host}}/cloud-agent/schema-registry/schemas/0edc8ab5-70b8-321e-a740-a44efa9edffc",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cloud-agent",
+						"schema-registry",
+						"schemas",
+						"0edc8ab5-70b8-321e-a740-a44efa9edffc"
+					]
+				},
+				"description": "testing minimum response time as well as basic call"
+			},
+			"response": []
+		},
+		{
+			"name": "events/webhooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"followOriginalHttpMethod": false
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{APIKEY}}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apiKey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "null"
+					},
+					{
+						"key": "charset",
+						"value": "UTF-8"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{host}}/cloud-agent/events/webhooks",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cloud-agent",
+						"events",
+						"webhooks"
+					]
+				},
+				"description": "testing minimum response time as well as basic call"
+			},
+			"response": []
+		}
+	]
+}
