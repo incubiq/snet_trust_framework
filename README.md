@@ -9,10 +9,10 @@ a.  Intro - An architecture review video explaining what we will focus on and th
  
 b.  Proof that Identus is fit for purpose: [30min video] https://www.youtube.com/watch?v=4DyPuZr_3PA ; see also the full test scripts used for those tests : see [/test/identus](https://github.com/incubiq/snet_trust_framework/tree/main/test/identus)
  
-c.  Specs of APIs for an open source Library making use of Identus and hiding the complexity of Identus: see [/specs/M1-APIs.pdf](https://github.com/incubiq/snet_trust_framework/tree/main/specs/). We may improve those specs later on as the project progresses, but those currently represent the minimum requirement to deliver what we need (Roles [Issuer, Holder, Verifier, admin], Entity, Wallet, DID, VC offer, VC, Proof, P2P secure and anon connection, Schemas). Each component has a clearly defined set of APIs.
+c.  Specs of APIs for an open source Library making use of Identus and hiding the complexity of Identus: see [/specs/M1-APIs.pdf](https://github.com/incubiq/snet_trust_framework/tree/main/specs/M1-APIs.pdf). We may improve those specs later on as the project progresses, but those currently represent the minimum requirement to deliver what we need (Roles [Issuer, Holder, Verifier, admin], Entity, Wallet, DID, VC offer, VC, Proof, P2P secure and anon connection, Schemas). Each component has a clearly defined set of APIs.
 
 d.  Tech stack choices:
-   - the overall view of the different systems interacting with each other is described here: see [/specs/M1-design.pdf](https://github.com/incubiq/snet_trust_framework/tree/main/specs/) 
+   - the overall view of the different systems interacting with each other is described here: see [/specs/M1-design.pdf](https://github.com/incubiq/snet_trust_framework/tree/main/specs/M1-design.pdf) 
    - the Digital Identity Cloud Agent will be delivered in NodeJS   
    - we will NOT have a DB although the caller may need to store info provided by this Agent (like non custodial wallet seed phrase for example)
    - the initial Trust registry will be minimal ; we will issue creds based on formats passed to the Agent, as opposed to pre-defined validated formats
