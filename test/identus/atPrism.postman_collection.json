@@ -1966,7 +1966,7 @@
 			]
 		},
 		{
-			"name": "VerifiedCreds",
+			"name": "VC - Definitions",
 			"item": [
 				{
 					"name": "credential-definition-registry/definitions",
@@ -2142,7 +2142,7 @@
 					"response": []
 				},
 				{
-					"name": "issue-credentials/records  [Bob]",
+					"name": "present-proof/presentations [Verifier]",
 					"event": [
 						{
 							"listen": "test",
@@ -2155,8 +2155,7 @@
 									"helpers.checkDelay(400);\r",
 									"\r",
 									"var jsonData = pm.response.json();\r",
-									"var _a=jsonData.contents;\r",
-									"pm.environment.set(\"recordAccept\", _a[_a.length-1].recordId);\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript",
@@ -2175,7 +2174,6 @@
 						}
 					],
 					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
 						"followOriginalHttpMethod": false
 					},
 					"request": {
@@ -2184,7 +2182,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{bob_APIKEY}}",
+									"value": "{{APIKEY}}",
 									"type": "string"
 								},
 								{
@@ -2194,7 +2192,7 @@
 								}
 							]
 						},
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
@@ -2210,24 +2208,29 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": []
+							"mode": "raw",
+							"raw": "{\r\n    \"connectionId\": \"35c7b395-29f0-4b65-acf1-8c21f4fc0905\",\r\n    \"proofs\": [ ],\r\n    \"options\": {\r\n          \"challenge\": \"Give me proof of your VC with condition\",\r\n          \"domain\": \"https://mydomain.com\"\r\n    },\r\n    \"credentialFormat\": \"JWT\"\r\n}"
 						},
 						"url": {
-							"raw": "{{host}}/cloud-agent/issue-credentials/records",
+							"raw": "{{host}}/cloud-agent/present-proof/presentations",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"cloud-agent",
-								"issue-credentials",
-								"records"
+								"present-proof",
+								"presentations"
 							]
 						},
 						"description": "testing minimum response time as well as basic call"
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "VC - Offer",
+			"item": [
 				{
 					"name": "issue-credentials/records  [Alice]",
 					"event": [
@@ -2315,6 +2318,93 @@
 									"key": "thid",
 									"value": "54bab86d-ceac-48fd-aa96-170ddaa0c139"
 								}
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "issue-credentials/records  [AI]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"var _a=jsonData.contents;\r",
+									"pm.environment.set(\"recordAccept\", _a[_a.length-1].recordId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY_AI}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/issue-credentials/records",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"issue-credentials",
+								"records"
 							]
 						},
 						"description": "testing minimum response time as well as basic call"
@@ -2540,7 +2630,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{alice_APIKEY}}",
+									"value": "{{APIKEY}}",
 									"type": "string"
 								},
 								{
@@ -2567,7 +2657,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"schemaId\": null,\r\n\"claims\": {\r\n    \"condition\": \"encoded_cond_that_you_cannot_decode\",\r\n    \"comment\": \"You bet it's important\"\r\n},\r\n\"automaticIssuance\": false,\r\n\"issuingDID\": \"did:prism:04cfc06a2f98b8f0b341a1f0538dd0927bc899e7063f700e0a9a5c9bb8cb6392\",\r\n\"connectionId\": \"51d8b623-2539-4e45-8035-227f471f10d5\"\r\n}"
+							"raw": "{\r\n\"schemaId\": null,\r\n\"claims\": {\r\n    \"condition\": \"encoded_cond_that_you_cannot_decode\",\r\n    \"comment\": \"You bet it's important\"\r\n},\r\n\"automaticIssuance\": false,\r\n\"issuingDID\": \"did:prism:52bb2517aed3e73b3cf68a7b72c891960f016acbd9b3b3ae0a4658015ad1e186\",\r\n\"connectionId\": \"b3685eb4-cc5b-49c8-b105-60a7a35a0ee3\",\r\n\"goal\": \"indentity goal\",\r\n\"goalCode\": \"indentity\"\r\n}"
 						},
 						"url": {
 							"raw": "{{host}}/cloud-agent/issue-credentials/credential-offers",
@@ -2759,7 +2849,12 @@
 						"description": "testing minimum response time as well as basic call"
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "VC - Proof",
+			"item": [
 				{
 					"name": "present-proof/presentations  [OSAIS]",
 					"event": [
@@ -2886,7 +2981,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{bob_APIKEY}}",
+									"value": "{{APIKEY_AI}}",
 									"type": "string"
 								},
 								{
@@ -2914,91 +3009,6 @@
 						"body": {
 							"mode": "raw",
 							"raw": ""
-						},
-						"url": {
-							"raw": "{{host}}/cloud-agent/present-proof/presentations",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"cloud-agent",
-								"present-proof",
-								"presentations"
-							]
-						},
-						"description": "testing minimum response time as well as basic call"
-					},
-					"response": []
-				},
-				{
-					"name": "present-proof/presentations [Verifier]",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var helpers = eval(globals.loadHelpers);\r",
-									"\r",
-									"helpers.checkJSON();\r",
-									"helpers.checkStatus(200);\r",
-									"helpers.checkDelay(400);\r",
-									"\r",
-									"var jsonData = pm.response.json();\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"followOriginalHttpMethod": false
-					},
-					"request": {
-						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{APIKEY}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "apikey",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "null"
-							},
-							{
-								"key": "charset",
-								"value": "UTF-8"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"connectionId\": \"35c7b395-29f0-4b65-acf1-8c21f4fc0905\",\r\n    \"proofs\": [ ],\r\n    \"options\": {\r\n          \"challenge\": \"Give me proof of your VC with condition\",\r\n          \"domain\": \"https://mydomain.com\"\r\n    },\r\n    \"credentialFormat\": \"JWT\"\r\n}"
 						},
 						"url": {
 							"raw": "{{host}}/cloud-agent/present-proof/presentations",
@@ -3056,7 +3066,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{bob_APIKEY}}",
+									"value": "{{APIKEY_AI}}",
 									"type": "string"
 								},
 								{
@@ -3086,7 +3096,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{host}}/cloud-agent/present-proof/presentations?thid=78229765-afff-429f-839d-4693deb7f9be",
+							"raw": "{{host}}/cloud-agent/present-proof/presentations?thid=1bb1ede3-c047-46d9-97c8-25324ddccd92",
 							"host": [
 								"{{host}}"
 							],
@@ -3098,7 +3108,7 @@
 							"query": [
 								{
 									"key": "thid",
-									"value": "78229765-afff-429f-839d-4693deb7f9be"
+									"value": "1bb1ede3-c047-46d9-97c8-25324ddccd92"
 								}
 							]
 						},
@@ -3173,11 +3183,11 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": ""
+							"mode": "urlencoded",
+							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{host}}/cloud-agent/present-proof/presentations?thid=78229765-afff-429f-839d-4693deb7f9be",
+							"raw": "{{host}}/cloud-agent/present-proof/presentations?thid=1bb1ede3-c047-46d9-97c8-25324ddccd92",
 							"host": [
 								"{{host}}"
 							],
@@ -3189,8 +3199,92 @@
 							"query": [
 								{
 									"key": "thid",
-									"value": "78229765-afff-429f-839d-4693deb7f9be"
+									"value": "1bb1ede3-c047-46d9-97c8-25324ddccd92"
 								}
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "present-proof/presentation  [OSAIS]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"verifier_presentation_id\", jsonData.presentationId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"connectionId\": \"b3685eb4-cc5b-49c8-b105-60a7a35a0ee3\",\r\n    \"proofs\" : [{\r\n        \"description\": \"give me identity\",\r\n        \"example\": \"something\", \r\n        \"schemaId\": \"4ee80c82-a569-4f37-8663-c117bc7387ec\",\r\n        \"trustIssuers\": [\"did:prism:52bb2517aed3e73b3cf68a7b72c891960f016acbd9b3b3ae0a4658015ad1e186\"],\r\n    }],\r\n    \"claims\": {\"name\": true},\r\n    \"goal\": \"prove your identity PING guy!\",\r\n    \"goalCode\": \"identity\",\r\n    \"options\": {\r\n        \"challenge\": \"identity\",\r\n        \"domain\": \"test.com\"\r\n    },\r\n    \"credentialFormat\": \"JWT\"   \r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/cloud-agent/present-proof/presentations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cloud-agent",
+								"present-proof",
+								"presentations"
 							]
 						},
 						"description": "testing minimum response time as well as basic call"
@@ -3237,7 +3331,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{bob_APIKEY}}",
+									"value": "{{APIKEY_AI}}",
 									"type": "string"
 								},
 								{
