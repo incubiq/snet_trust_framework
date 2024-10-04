@@ -79,4 +79,5 @@ src/Redux/Store.js
 temp/
 *.pptx
 *.docx
+.vscode
 
