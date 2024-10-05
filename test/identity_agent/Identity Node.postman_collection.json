@@ -267,7 +267,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -352,19 +352,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{APIKEY_AI}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "apikey",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [
@@ -379,6 +367,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "apikey",
+								"value": "{{APIKEY_SNET_AI}}",
 								"type": "text"
 							}
 						],
@@ -442,7 +435,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY_AI}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -465,7 +458,6 @@
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
-								"name": "Content-Type",
 								"type": "text"
 							}
 						],
@@ -681,6 +673,121 @@
 						"description": "testing minimum response time as well as basic call"
 					},
 					"response": []
+				},
+				{
+					"name": "identity/did/{{did}}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(201);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"didLong\", jsonData.longFormDid);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY_SNET}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "iss-3",
+									"type": "text"
+								},
+								{
+									"key": "purpose",
+									"value": "issue",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/identity/did/{{didRef}}?purpose=issue&name=iss-1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"identity",
+								"did",
+								"{{didRef}}"
+							],
+							"query": [
+								{
+									"key": "purpose",
+									"value": "issue"
+								},
+								{
+									"key": "name",
+									"value": "iss-1"
+								}
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
 				}
 			]
 		},
@@ -688,7 +795,88 @@
 			"name": "Admin",
 			"item": [
 				{
-					"name": "identity/entities",
+					"name": "admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/admin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"admin"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
+					"name": "admin/entities",
 					"event": [
 						{
 							"listen": "test",
@@ -754,14 +942,14 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/identity/entities",
+							"raw": "{{host}}/api/v1/admin/entities",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"identity",
+								"admin",
 								"entities"
 							]
 						},
@@ -770,7 +958,7 @@
 					"response": []
 				},
 				{
-					"name": "identity/entity/{{ID}}",
+					"name": "admin/entity/{{ID}}",
 					"event": [
 						{
 							"listen": "test",
@@ -823,7 +1011,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
-								"name": "Content-Type",
+								"type": "text"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
 								"type": "text"
 							}
 						],
@@ -832,14 +1024,14 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/identity/entity/{{entity}}",
+							"raw": "{{host}}/api/v1/admin/entity/{{entity}}",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"identity",
+								"admin",
 								"entity",
 								"{{entity}}"
 							]
@@ -849,7 +1041,7 @@
 					"response": []
 				},
 				{
-					"name": "identity/entity",
+					"name": "admin/entity",
 					"event": [
 						{
 							"listen": "test",
@@ -909,7 +1101,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
-								"name": "Content-Type",
+								"type": "text"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
 								"type": "text"
 							}
 						],
@@ -918,25 +1114,30 @@
 							"urlencoded": [
 								{
 									"key": "name",
-									"value": "test-1",
+									"value": "snet123",
 									"type": "text"
 								},
 								{
 									"key": "mnemonic",
 									"value": "{{mnemonic}}",
 									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "caller",
+									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/identity/entity",
+							"raw": "{{host}}/api/v1/admin/entity",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"identity",
+								"admin",
 								"entity"
 							]
 						},
@@ -945,7 +1146,7 @@
 					"response": []
 				},
 				{
-					"name": "identity/entity/{{...}}",
+					"name": "admin/entity/{{...}}",
 					"event": [
 						{
 							"listen": "test",
@@ -1006,6 +1207,11 @@
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
 								"type": "text"
+							},
+							{
+								"key": "x-admin-api-key",
+								"value": "{{ADMIN_TOKEN}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1013,14 +1219,14 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/identity/entity/61d8a3bc-3b90-49e4-874f-a0b0ce2ca14b",
+							"raw": "{{host}}/api/v1/admin/entity/61d8a3bc-3b90-49e4-874f-a0b0ce2ca14b",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"identity",
+								"admin",
 								"entity",
 								"61d8a3bc-3b90-49e4-874f-a0b0ce2ca14b"
 							]
@@ -1395,7 +1601,7 @@
 									"\r",
 									"var jsonData = pm.response.json();\r",
 									"var _a=jsonData.data;\r",
-									"pm.environment.set(\"issuer_connection_id\", _a[0].connectionId);"
+									"pm.environment.set(\"issuer_connection_id\", _a[_a.length-1].connectionId);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -1449,7 +1655,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -1678,7 +1884,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -1906,7 +2112,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -1937,18 +2143,18 @@
 							"urlencoded": [
 								{
 									"key": "from",
-									"value": "ai_ping",
+									"value": "snet123",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{host}}/ap1/v1/p2p/invite",
+							"raw": "{{host}}/api/v1/p2p/invite",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"ap1",
+								"api",
 								"v1",
 								"p2p",
 								"invite"
@@ -2086,7 +2292,7 @@
 									"var helpers = eval(globals.loadHelpers);\r",
 									"\r",
 									"helpers.checkJSON();\r",
-									"helpers.checkStatus(200);\r",
+									"helpers.checkStatus(201);\r",
 									"helpers.checkDelay(400);\r",
 									"\r",
 									"var jsonData = pm.response.json();\r",
@@ -2164,17 +2370,17 @@
 							"urlencoded": [
 								{
 									"key": "key_peer1",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "text"
 								},
 								{
 									"key": "key_peer2",
-									"value": "{{APIKEY_AI}}",
+									"value": "{{APIKEY_SNET_AI}}",
 									"type": "text"
 								},
 								{
 									"key": "name_peer1",
-									"value": "osais",
+									"value": "snet",
 									"type": "text"
 								},
 								{
@@ -2185,7 +2391,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/p2p/custodial/onnect",
+							"raw": "{{host}}/api/v1/p2p/custodial/connect",
 							"host": [
 								"{{host}}"
 							],
@@ -2194,7 +2400,7 @@
 								"v1",
 								"p2p",
 								"custodial",
-								"onnect"
+								"connect"
 							]
 						},
 						"description": "testing minimum response time as well as basic call"
@@ -2542,7 +2748,7 @@
 					"response": []
 				},
 				{
-					"name": "credential-definition-registry/definitions",
+					"name": "definition",
 					"event": [
 						{
 							"listen": "test",
@@ -2737,8 +2943,8 @@
 									"helpers.checkDelay(400);\r",
 									"\r",
 									"var jsonData = pm.response.json();\r",
-									"var _a=jsonData.contents;\r",
-									"// pm.environment.set(\"recordAccept\", _a[_a.length-1].recordId);\r",
+									"var _a=jsonData.data;\r",
+									"pm.environment.set(\"recordAccept\", _a[_a.length-1].recordId);\r",
 									""
 								],
 								"type": "text/javascript",
@@ -2762,19 +2968,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "apikey",
-							"apikey": [
-								{
-									"key": "value",
-									"value": "{{APIKEY_AI}}",
-									"type": "string"
-								},
-								{
-									"key": "key",
-									"value": "apikey",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [
@@ -2789,6 +2983,11 @@
 							{
 								"key": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "apikey",
+								"value": "{{APIKEY_SNET_AI}}",
 								"type": "text"
 							}
 						],
@@ -2996,6 +3195,94 @@
 					"response": []
 				},
 				{
+					"name": "vc/match/{type}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var helpers = eval(globals.loadHelpers);\r",
+									"\r",
+									"helpers.checkJSON();\r",
+									"helpers.checkStatus(200);\r",
+									"helpers.checkDelay(400);\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followOriginalHttpMethod": false
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{APIKEY_SNET_AI}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "apikey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "null"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/vc/match/test",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"vc",
+								"match",
+								"test"
+							]
+						},
+						"description": "testing minimum response time as well as basic call"
+					},
+					"response": []
+				},
+				{
 					"name": "vc/offer-noschema",
 					"event": [
 						{
@@ -3117,9 +3404,8 @@
 									"helpers.checkDelay(400);\r",
 									"\r",
 									"var jsonData = pm.response.json();\r",
-									"var _a=jsonData.contents;\r",
-									"pm.environment.set(\"didLong\", _a[0].longFormDid);\r",
-									"pm.environment.set(\"didRef\", _a[0].did);\r",
+									"var _a=jsonData.data;\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript",
@@ -3145,13 +3431,13 @@
 							"type": "apikey",
 							"apikey": [
 								{
-									"key": "value",
-									"value": "{{APIKEY_AI}}",
+									"key": "key",
+									"value": "apikey",
 									"type": "string"
 								},
 								{
-									"key": "key",
-									"value": "apikey",
+									"key": "value",
+									"value": "{{APIKEY_SNET_AI}}",
 									"type": "string"
 								}
 							]
@@ -3177,22 +3463,24 @@
 							"urlencoded": [
 								{
 									"key": "recordId",
-									"value": "{{holder_record_id}}",
+									"value": "5aa7a5ec-35dc-4327-8e06-d9f51952c8ec",
 									"type": "text"
 								},
 								{
 									"key": "did",
-									"value": "4991eabd22fece0d5c187631684ceb02543ad0943ac847e92159a711113c1d3b",
+									"value": "{{did_holder}}",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{host}}/vc/accept",
+							"raw": "{{host}}/api/v1/vc/accept",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"vc",
 								"accept"
 							]
@@ -3242,7 +3530,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -3273,17 +3561,19 @@
 							"urlencoded": [
 								{
 									"key": "recordId",
-									"value": "{{issuer_record_id}}",
+									"value": "61faa8cb-7bc9-4c41-a0e5-7c10d81dd98f",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{host}}/vc/issue",
+							"raw": "{{host}}/api/v1/vc/issue",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
+								"api",
+								"v1",
 								"vc",
 								"issue"
 							]
@@ -3357,12 +3647,12 @@
 								},
 								{
 									"key": "key_peer1",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "text"
 								},
 								{
 									"key": "key_peer2",
-									"value": "{{APIKEY_AI}}",
+									"value": "{{APIKEY_SNET_AI}}",
 									"type": "text"
 								},
 								{
@@ -3377,7 +3667,7 @@
 								},
 								{
 									"key": "claims",
-									"value": "{\"claim_type\": \"test\"}",
+									"value": "{\"claim_type\": \"test\", \"object\": \"a simple test\"}",
 									"type": "text"
 								}
 							]
@@ -3446,7 +3736,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -3534,7 +3824,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY_AI}}",
+									"value": "{{APIKEY_SNET_AI}}",
 									"type": "string"
 								},
 								{
@@ -3817,7 +4107,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY_AI}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -3848,7 +4138,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "{{host}}/api/v1/proof/presentation/match/identity",
+							"raw": "{{host}}/api/v1/proof/presentation/match/test",
 							"host": [
 								"{{host}}"
 							],
@@ -3858,7 +4148,7 @@
 								"proof",
 								"presentation",
 								"match",
-								"identity"
+								"test"
 							]
 						},
 						"description": "testing minimum response time as well as basic call"
@@ -4011,7 +4301,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY_AI}}",
+									"value": "{{APIKEY_SNET_AI}}",
 									"type": "string"
 								},
 								{
@@ -4109,7 +4399,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "string"
 								},
 								{
@@ -4215,12 +4505,12 @@
 							"urlencoded": [
 								{
 									"key": "key_peer1",
-									"value": "{{APIKEY}}",
+									"value": "{{APIKEY_SNET}}",
 									"type": "text"
 								},
 								{
 									"key": "key_peer2",
-									"value": "{{APIKEY_AI}}",
+									"value": "{{APIKEY_SNET_AI}}",
 									"type": "text"
 								},
 								{
