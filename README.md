@@ -20,4 +20,13 @@ d.  Tech stack choices:
 
  ## Milestone 2: Delivery Of An Open Source Package
 
- TODO...
+_Delivered 5 Oct 2024_
+
+a. video proof of the Identity Agent running on localhost [30min video]: https://youtu.be/Ret9_FcK3rs 
+
+b. source code: https://github.com/incubiq/snet_trust_framework/tree/main/src
+
+c. fully documented API of the agent: https://incubiq.gitbook.io/opensourceais/identity-agent-lib 
+
+d. Test scripts of the agent: https://github.com/incubiq/snet_trust_framework/tree/main/test/identity_agent
+
