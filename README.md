@@ -30,3 +30,19 @@ c. fully documented API of the agent: https://incubiq.gitbook.io/opensourceais/i
 
 d. Test scripts of the agent: https://github.com/incubiq/snet_trust_framework/tree/main/test/identity_agent
 
+
+ ## Milestone 3: Delivery Of An Identity Cloud Agent
+
+_Delivered 30 Oct 2024_
+
+a. video proof of the Identity Agent running in prod (AWS) [17min video]: https://youtu.be/RyZHXyVZPlY
+
+b. source code: https://github.com/incubiq/snet_trust_framework
+
+c. fully documented API of the agent: https://incubiq.gitbook.io/opensourceais/identity-agent-lib 
+
+d. our live Cloud Identity Agent: https://identity.opensourceais.com 
+
+e. proof of the identus cloud agent live (https://identus.opensourceais.com/cloud-agent/_system/health) and how to document to install it on AWS: https://github.com/incubiq/snet_trust_framework/blob/main/howto/setup_identus.md
+
+f. sample source code for integration of the Cloud Identity Agent: https://github.com/incubiq/snet_trust_framework/tree/main/sample
