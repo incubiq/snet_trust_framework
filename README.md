@@ -35,9 +35,9 @@ d. Test scripts of the agent: https://github.com/incubiq/snet_trust_framework/tr
 
 _Delivered 30 Oct 2024_
 
-a. video proof of the Identity Agent running in prod (AWS) [17min video]: https://youtu.be/RyZHXyVZPlY
+a. video proof of the Milestone [17min video]: https://youtu.be/RyZHXyVZPlY
 
-b. source code: https://github.com/incubiq/snet_trust_framework
+b. source code: https://github.com/incubiq/snet_trust_framework/main/src
 
 c. fully documented API of the agent: https://incubiq.gitbook.io/opensourceais/identity-agent-lib 
 
