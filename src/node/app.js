@@ -9,7 +9,8 @@ const srvIdentusUtil = require("./utils/util_identus_utils");
 
     module.exports = {
         createApp,
-        async_initializeApp
+        async_initializeApp,
+        async_pingIdentus
     };
 
     function createApp() {
@@ -34,6 +35,7 @@ const srvIdentusUtil = require("./utils/util_identus_utils");
 
             app.use(bodyParser.urlencoded({ extended: false }));
             app.use(bodyParser.json({limit: '50mb'})); 
+            app.use(cookieParser());
             app.use(require('express-session')({
                 secret: config.jwtKey,
                 name: config.appName,
@@ -59,21 +61,30 @@ const srvIdentusUtil = require("./utils/util_identus_utils");
             initializeRedirections(app);
             initializeRoutes(app);
             initializeViews(app);     
+            async_pingIdentus();
+        }
+        catch(err) {
+            srvUtil.consoleLog(err && err.message? err.message : err.statusText);
+            throw err;
+        }
+    }
 
+    async function async_pingIdentus() {
             // test Identus agent connection
             try {
                 await srvIdentus.async_getEntities();
-                srvUtil.consoleLog("Identus is ready!")
+                srvUtil.consoleLog("Identus is ready at "+gConfig.identus.host);
+                gConfig.identus.isLive=true;
+                return true;
             }
             catch(err) {
-                srvUtil.consoleLog("FATAL: Identus not found at "+gConfig.identus.host)
-                throw err;
+                gConfig.identus.isLive=false;
+                if(err && err.response &&  err.response.status && err.response.status==401) {
+                    srvUtil.consoleLog("Critical: not authorised as Admin (probably a bad admin pwd) ")
+                }
+                srvUtil.consoleLog("FATAL: Identus not found at "+gConfig.identus.host + "("+(err.code? err.code: "") + " "+ (err.errno? err.errno: "") + " "+(err.message? err.message:"") + ")" )
+                return false;
             }
-        }
-        catch(err) {
-            console.log(err && err.message? err.message : err.statusText);
-            throw err;
-        }
     }
 
 /*
@@ -89,21 +100,21 @@ const srvIdentusUtil = require("./utils/util_identus_utils");
                 "X-XSS-Protection": "1; mode=block",
                 "Content-Security-Policy":
                     gConfig.isDebug?
-                        "default-src 'self' 'unsafe-eval' data: http://localhost:"+gConfig.port +" https://*.amazonaws.com * ; " +
-                        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:"+gConfig.port +" ; " +
+                        "default-src 'self' 'unsafe-eval' data: http://localhost:"+gConfig.port +" https://*.amazonaws.com http://identus.opensourceais.com https://identity.opensourceais.com ; " +
+                        "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:"+gConfig.port +" unpkg.com http://identus.opensourceais.com https://identity.opensourceais.com ; " +
                         "style-src 'self' 'unsafe-eval' 'unsafe-inline' http://localhost:"+gConfig.port +" fonts.googleapis.com  cdnjs.cloudflare.com ; " +
                         "font-src  http://localhost:"+gConfig.port + " fonts.gstatic.com cdnjs.cloudflare.com ; " +
-                        "connect-src ws://localhost:"+gConfig.port +" http://localhost:"+gConfig.port +" 'self' accounts.youtube.com ; " +
+                        "connect-src ws://localhost:"+gConfig.port +" http://localhost:"+gConfig.port +" 'self' accounts.youtube.com *.trycloudflare.com http://identus.opensourceais.com https://identity.opensourceais.com  ; " +
                         "worker-src blob: ; " +
                         "img-src 'self' data: http://localhost:"+gConfig.port +" googleusercontent.com googletagmanager.com ; " +
                         "frame-src 'self'  youtube.com youtu.be ;" +
                         "media-src 'self'  http://localhost:"+gConfig.port +" http://*:"+gConfig.port +" youtube.com youtu.be ;"
                         :
-                        "default-src 'self' 'unsafe-eval' data: https://*.amazonaws.com ; " +
-                        "script-src 'self' 'unsafe-inline' 'unsafe-eval' shortfakes.com  cdnjs.cloudflare.com www.googletagmanager.com ; " +
+                        "default-src 'self' 'unsafe-eval' data: https://*.amazonaws.com http://identus.opensourceais.com https://identity.opensourceais.com ; " +
+                        "script-src 'self' 'unsafe-inline' 'unsafe-eval' shortfakes.com  cdnjs.cloudflare.com www.googletagmanager.com unpkg.com http://identus.opensourceais.com https://identity.opensourceais.com ; " +
                         "style-src 'self' 'unsafe-eval' 'unsafe-inline' data:  shortfakes.com fonts.googleapis.com cdnjs.cloudflare.com ; "  +
                         "font-src fonts.gstatic.com  cdnjs.cloudflare.com ; "+
-                        "connect-src  'self'  *.google-analytics.com; " +
+                        "connect-src  'self'  *.google-analytics.com *.trycloudflare.com http://identus.opensourceais.com https://identity.opensourceais.com ; " +
                         "worker-src blob: ; " +
                         "img-src 'self' data:  googleusercontent.com googletagmanager.com ; " +
                         "frame-src 'self' www.youtube.com youtube.com www.youtu.be youtu.be  ;" +
@@ -166,6 +177,7 @@ const srvIdentusUtil = require("./utils/util_identus_utils");
         const routeCredentials = require('./routes/route_did_credentials');
         const routeProof = require('./routes/route_did_proof');
         const routePublicAPI = require('./routes/route_public');
+        const routeUI = require('./routes/route_ui');
         const routePrivateAdminAPI = require('./routes/route_private_admin');
 
         // If we don't want to redirect on authentication error...
@@ -186,6 +198,8 @@ const srvIdentusUtil = require("./utils/util_identus_utils");
         // public API route
         app.use('/api/v1/public', routePublicAPI);
 
+        // UI route
+        app.use('/', routeUI);
         // Admin API route
 //        app.use('/api/v1/private/admin', routePrivateAdminAPI);
         
